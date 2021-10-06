@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WebSite Uni Systems</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!--classe das 3 linhas sinalizando o menu-->
+        <div class="hamburguer">
+            <div class="line" id="line1"></div>
+            <div class="line" id="line2"></div>
+            <div class="line" id="line3"></div>
+            <!--esse span é a sinalização quando passa o mouse em cima do X falando que é para fechar-->
+            <span>fechar</span>
+        </div>
+
+        <!--parte que contem todas as informações da capa-->
+        <header id="home">
+
+            <div class="img-logo">
+                <img src="./Imagens/logoOriginal.png" alt="Logo Uni Systems" width="180">
+            </div>
+
+            <div class="img-wrapper">
+                <img src="./Imagens/background.jpg" alt="Background">
+            </div>
+            <div class="banner">
+                <h1>Sistema para Lojas</h1>
+                <p>Programa para Lojas e Comércio simples e fácil de usar,<br />deixando seu estabelecimento mais funcional e organizado.</p>
+                <a href="./HtmlsExtras/principal.html"><button><strong>SAIBA MAIS</strong></button></a>
+            </div>
+
+        </header>
+
+        <!--opções do menu lateral-->
+        <aside class="sidebar">
+            <nav>
+                <ul class="menu">
+                    <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
+                    <li class="menu-item"><a href="#funcionalidades" class="menu-link">Funcionalidades</a></li>
+                    <li class="menu-item"><a href="./HtmlsExtras/planos.html" class="menu-link">Planos</a></li>
+                    <li class="menu-item"><a href="./HtmlsExtras/contato.html" class="menu-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="social-media">
+                <a href="https://api.whatsapp.com/send?phone=554598383259" target="_blank"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+        </aside>
+
+        <!--sessao das funcionalides contendo imagens e texto-->
+        <section class="sessao-funcionalidades" id="funcionalidades">
+            <div class="sessao-header">
+                <h1>Funcionalidades do Sistema</h1>
+            </div>
+            <div class="funcionalidades">
+
+                <div class="funcionalidade-caixa">
+
+                    <img src="./Imagens/F1.png" alt="Tela do Modulo Caixa">
+                    <h3>Caixa</h3>
+
+                    <p>É possível abrir e fechar a caixa diariamente através da validação do gestor ou responsável, também está disponível a visualização do relatório de vendas diárias, semanais, mensais e anuais.
+                    </p>
+                </div>
+
+                <div class="funcionalidade-vendas">
+
+                    <img src="./Imagens/F2.png" alt="Tela do Modulo Vendas">
+                    <h3>Vendas</h3>
+
+                    <p>Nesse modulo você consegue realizar uma nova venda, cadastrar nova cliente e visualizar histórico de compras do cliente.
+                    </p>
+                </div>
+
+                <div class="funcionalidade-rh">
+
+                    <img src="./Imagens/F3.png" alt="Tela do Modulo RH">
+                    <h3>RH</h3>
+
+                    <p>Essa área é especializada para a administração de seus funcionários, nela você consegue cadastra-los e manter um controle maior em relação as faltas e salário.
+                    </p>
+
+                </div>
+
+                <div class="funcionalidade-estoque">
+
+                    <img src="./Imagens/F4.png" alt="Tela do Modulo Estoque">
+                    <h3>Estoque</h3>
+
+                    <p>Aqui é destinado ao cadastro de produtos, fornecedores e categorias. Tambem é possível edita-los e remove-los. Na parte do cadastro de produtos é separado por codigo do produto, nome, quantidade, categoria, valor de custo, valor de
+                        venda, fornecedor e se precisar data de validade.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--sessao dos 4 modulos-->
+        <div class="sessao-modulos" id="modulos">
+            <div class="sessao-header">
+                <h1>Modulos do Sistema</h1>
+            </div>
+            <div class="modulos">
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="./Imagens/backCaixa.jpg" alt="Tela do Modulo Caixa" />
+                    </div>
+                    <div class="card-info">
+                        <h3>CAIXA</h3>
+                        <p>Facilitar manuseio do caixa, otimizando o tempo das funções, do processo de abertura e fechamento de caixa, controle de entrada de dinheiro.</p>
+                        <a href="./HtmlsExtras/caixa.html"><button class="btn"><strong>SAIBA MAIS</strong></button></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="./Imagens/backVendas.jpg" alt="Tela do Modulo Vendas" />
+                    </div>
+                    <div class="card-info">
+                        <h3>VENDAS</h3>
+                        <p>Oferece um PDV (Ponto de venda) ágil no momento da venda que é fácil de usar e está integrado a diversos equipamentos como impressoras, leitor de código de barras e gaveta de dinheiro.
+                        </p>
+                        <a href="./HtmlsExtras/venda.html"><button class="btn"><strong>SAIBA MAIS</strong></button></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="./Imagens/backRh.jpg" alt="Tela do Modulo RH" />
+                    </div>
+                    <div class="card-info">
+                        <h3>RH</h3>
+                        <p>Facilitar o controle dos funcionários e deixar de uma forma mais organizada e sistemática.
+                        </p>
+                        <a href="./HtmlsExtras/rh.html"><button class="btn"><strong>SAIBA MAIS</strong></button></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="./Imagens/backEstoque.jpg" alt="Tela do Modulo Estoque" />
+                    </div>
+                    <div class="card-info">
+                        <h3>ESTOQUE</h3>
+                        <p>Melhorar o desempenho da loja pois haverá mais controle sobre os produtos que serão colocados e vendidos no estabelecimento.</p>
+                        <a href="./HtmlsExtras/estoque.html"><button class="btn"><strong>SAIBA MAIS</strong></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--sessao de mensagem, podendo adicionar seu nome, email e uma mensagem para enviar-->
+        <section class="sessao-mensagem" id="mensagem">
+            <div class="mensagem-wrapper">
+                <div class="mensagem-left"></div>
+                <div class="mensagem-right">
+                    <h1>Mande sua Dúvida</h1>
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="field" id="nome" required>
+                            <label for="nome" class="field-label">Nome</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="field" id="email" required>
+                            <label for="email" class="field-label">E-mail</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea class="field" id="mensagem" required></textarea>
+                            <label for="mensagem" class="field-label">Digite sua Mensagem</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit"><strong>ENVIAR</strong></button>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="wrapper">
+                <div class="footer-box">
+                    <div class="company-footer">
+                        <img src="./Imagens/logoOriginal.png" width="200">
+                        <h2>Sistema ERP</h2>
+                        <p>Programa para Lojas e Comércio simples e fácil de usar, deixando seu estabelecimento mais funcional e organizado.</p>
+                    </div>
+                </div>
+
+                <div class="footer-box">
+                    <div class="opcoes-footer">
+                        <h2>Sobre o Programa</h2>
+                        <ul class="footer-list footer-opcoes-list">
+                            <li><a href="./principal.html">Por que adquirir esse sistema ERP?</a></li>
+                            <li><a href="#funcionalidades">Funcionalides de cada modulo do sistema.</a></li>
+                            <li><a href="./HtmlsExtras/caixa.html">Sobre o modulo Caixa.</a></li>
+                            <li><a href="./HtmlsExtras/venda.html">Sobre o modulo Vendas.</a></li>
+                            <li><a href="./HtmlsExtras/rh.html">Sobre o modulo RH.</a></li>
+                            <li><a href="./HtmlsExtras/estoque.html">Sobre o modulo Estoque.</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-box">
+                    <h2>Entre em contato com nossa empresa</h2>
+                    <ul class="footer-list">
+                        <li><a href="https://api.whatsapp.com/send?phone=554598383259" target="_blank"><i
+                                    class="fab fa-whatsapp"></i></a></li>
+
+                        <li><a href="./HtmlsExtras/contato.html">Nossos e-mails</a></li>
+                        <li><a href="#mensagem">Mande suas dúvidas</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="wrapper">
+                    <p>
+                        Copyright &copy; 2021, UNI SYSTEMS - Todos os direitos reservados
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+
+        <a href="#home" id="link-topo">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>

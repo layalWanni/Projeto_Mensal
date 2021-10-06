@@ -1,0 +1,1073 @@
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap');
+    /*fontes*/
+    
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+    /*icones*/
+    
+    * {
+        margin: 0;
+        padding: 0;
+        /*margem interna do elemento*/
+        list-style: none;
+        text-decoration: none;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    /*formatando aonde essas linhas vao se posicionar*/
+    
+    .hamburguer {
+        width: 2rem;
+        height: 2rem;
+        position: fixed;
+        z-index: 100;
+        right: 2rem;
+        top: 2rem;
+        display: flex;
+        flex-direction: column;
+        /*vao ficar um em baixo do outro em vez de ficar do lado*/
+        justify-content: space-evenly;
+        cursor: pointer;
+    }
+    
+    .show-menu .hamburguer {
+        right: 16rem;
+    }
+    
+    .line {
+        width: 100%;
+        /*vai ter a mesma largura que o elemento hamburguer*/
+        height: .1rem;
+        background-color: white;
+        box-shadow: 0.1rem 0.1rem 1px black;
+        transition: transform 1s;
+    }
+    /*fazendo com que a linha 1 vire para formar um X em conjunto com a linha 3*/
+    
+    .show-menu #line1 {
+        transform: rotate(45deg) translate(.3rem, .45rem);
+    }
+    
+    .show-menu #line2 {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .show-menu #line3 {
+        transform: rotate(-45deg) translate(.3rem, -.45rem);
+        ;
+    }
+    /*formatando o span que é o "fechar"*/
+    
+    .hamburguer span {
+        position: absolute;
+        left: 3rem;
+        height: 2rem;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #36D1DC;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        opacity: 0;
+    }
+    
+    .hamburguer span::before {
+        content: "";
+        position: absolute;
+        border-right: .5rem solid #36D1DC;
+        border-top: .5rem solid transparent;
+        border-left: .5rem solid transparent;
+        border-bottom: .5rem solid transparent;
+        left: -1rem;
+    }
+    
+    .show-menu .hamburguer:hover span {
+        opacity: 1;
+    }
+    
+    .img-logo {
+        position: absolute;
+        left: 9%;
+        top: 8%;
+        z-index: 100;
+        animation: moveBanner 2s;
+    }
+    
+    header {
+        width: 100%;
+        height: 100vh;
+        /*vh pega a altura da vizualizacao que ta senda carregada*/
+        overflow: hidden;
+        /*desabilita passar o tamanho da janela*/
+        position: relative;
+        border-bottom: 3px solid #36D1DC;
+    }
+    
+    .img-wrapper {
+        width: 100%;
+        /*largura, vai ocupar 100% da largura do header aqui*/
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /*maneira que ela vai ser envelopada, entao aqui ela vai cobrir a nossa div*/
+        opacity: 0.5;
+        animation: zoom 25s;
+    }
+    
+    @keyframes zoom {
+        /*animação da imagem ao entrar*/
+        0% {
+            transform: scale(1.3);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .banner {
+        position: absolute;
+        left: 15%;
+        /*distancia do elemento em relação a borda esquerda*/
+        /*right: ;*borda direita*/
+        top: 35%;
+        /*borda superior*/
+        /*bottom: ; borda inferior*/
+    }
+    
+    .banner h1 {
+        color: #ffffff;
+        font-size: 3rem;
+        font-family: "Roboto", Arial;
+        text-shadow: .3rem .4rem 2px rgba(0, 0, 0, a.4);
+        margin-bottom: 2rem;
+        /*espaçmento entre cada frase*/
+        animation: moveBanner 2s;
+    }
+    
+    .banner p {
+        font-family: Arial, serif;
+        color: #ffffff;
+        font-size: 1.5rem;
+        text-shadow: .2rem .2rem rgba(0, 0, 0, a.4);
+        line-height: 2.3rem;
+        margin-bottom: 1.5rem;
+        animation: moveBanner 2s;
+    }
+    
+    .banner button {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-size: 1rem;
+        text-transform: uppercase;
+        background: #36D1DC;
+        /*navegadores antigos*/
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        animation: moveBanner 2s;
+    }
+    
+    .banner button:hover {
+        color: white;
+    }
+    
+    @keyframes moveBanner {
+        0% {
+            transform: translateY(10rem);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    .sidebar {
+        width: 20rem;
+        height: 100vh;
+        background-color: gainsboro;
+        position: fixed;
+        top: 0;
+        right: -20rem;
+        transition: all 1s;
+        z-index: 99;
+    }
+    /*é uma classe que criamos no JavaScript*/
+    
+    .show-menu .sidebar {
+        right: 0;
+    }
+    /*arrumando a posição das opcões de menu*/
+    
+    .menu {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /*arrumando cada opçõa do menu*/
+    
+    .menu-item {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    /*editando a fonte das opcoes*/
+    
+    .menu-link {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.9rem;
+        color: rgb(88, 87, 87);
+        transition: color 1s;
+    }
+    /*animação quando passar o mouse em cima da palavra*/
+    
+    .menu-link:hover {
+        color: #36D1DC;
+    }
+    /*ajustando o simbolo do WhatsApp*/
+    
+    .social-media {
+        position: absolute;
+        bottom: 3.6rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .social-media i {
+        background-color: #36D1DC;
+        color: white;
+        height: 4.5rem;
+        width: 4.5rem;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transition: background-color 0.5s;
+    }
+    
+    .social-media i:hover {
+        background-color: #5B86E5;
+    }
+    
+    .sessao-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sessao-header h1 {
+        bottom: auto;
+        position: relative;
+        height: 78px;
+        text-transform: uppercase;
+        top: -4.5625px;
+        left: 7px;
+        text-align: center;
+        margin-left: 52px;
+        width: 921px;
+        margin-top: 5%;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        font-size: 2.7rem;
+        /*color: rgb(36, 53, 70);*/
+        color: black;
+        border-radius: 3px;
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+    }
+    
+    #funcionalidades h1 {
+        text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
+        border-style: hidden;
+        border-width: 0px;
+        padding-top: 22px;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0px 0px 3px 0px #243546;
+        width: 782px;
+        margin-top: 76.3438px;
+        height: 66px;
+    }
+    
+    .funcionalidade-caixa h3 {
+        width: 55px;
+        top: -236px;
+        left: 285px;
+        position: relative;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .funcionalidade-caixa p {
+        top: -218px;
+        left: 285px;
+        position: relative;
+        width: 282px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+    }
+    
+    .funcionalidades .funcionalidade-caixa {
+        height: 311px;
+        width: 584px;
+        top: 33px;
+        left: 0px;
+        position: relative;
+    }
+    
+    .funcionalidade-vendas h3 {
+        width: 68px;
+        top: -229px;
+        left: 285px;
+        position: relative;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .funcionalidade-vendas p {
+        left: 285px;
+        position: relative;
+        width: 282px;
+        text-align: justify;
+        top: -210px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+    }
+    
+    .funcionalidades .funcionalidade-vendas {
+        height: 284px;
+        width: 584px;
+        left: 0px;
+        position: relative;
+        bottom: auto;
+        top: 82px;
+    }
+    
+    .funcionalidade-rh h3 {
+        width: 40px;
+        top: -229px;
+        left: 285px;
+        position: relative;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .funcionalidade-rh p {
+        left: 285px;
+        position: relative;
+        width: 282px;
+        text-align: justify;
+        top: -220px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+    }
+    
+    .funcionalidades .funcionalidade-rh {
+        height: 299px;
+        width: 584px;
+        left: 733px;
+        position: relative;
+        top: -562px;
+    }
+    
+    .funcionalidade-estoque h3 {
+        width: 77px;
+        position: relative;
+        left: 285px;
+        bottom: auto;
+        top: -234px;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .funcionalidade-estoque p {
+        left: 285px;
+        position: relative;
+        width: 282px;
+        text-align: justify;
+        top: -217px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+    }
+    
+    .funcionalidades .funcionalidade-estoque {
+        height: 311px;
+        position: relative;
+        width: 584px;
+        left: 735px;
+        bottom: auto;
+        top: -509px;
+    }
+    
+    .sessao-funcionalidades .funcionalidades {
+        height: 706px;
+    }
+    
+    #modulos h1 {
+        text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
+        border-style: hidden;
+        border-width: 0px;
+        padding-top: 22px;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0px 0px 3px 0px #243546;
+        width: 782px;
+        margin-top: 76.3438px;
+        height: 66px;
+    }
+    
+    .modulos {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 2rem;
+    }
+    /*definindo o tamanho dos cards dos modulos*/
+    
+    .card {
+        margin-top: 5%;
+        width: 15.5rem;
+        height: 25.3rem;
+        position: relative;
+    }
+    /*colocando um fundo preto para quando colocar transparecia ficar preto*/
+    
+    .card-img-wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        border-radius: 0.5rem;
+    }
+    /*formatando a imagem para ficar no mesmo tamanho dos card*/
+    
+    .card-img-wrapper img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        opacity: 0.8;
+        margin-bottom: 10%;
+        transition: opacity 0.3s;
+    }
+    /*animação para ficar com opacidade*/
+    
+    .card:hover .card-img-wrapper img {
+        opacity: 0.3;
+    }
+    
+    .card-info {
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        margin-bottom: -3.6rem;
+        padding: 2rem;
+        text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, 0.6);
+        transition: all 0.3s;
+    }
+    
+    .card-info h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        color: #36D1DC;
+        margin-bottom: 1rem;
+    }
+    
+    .card-info p {
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-weight: 400;
+        width: 80%;
+        margin-bottom: 1.8rem;
+    }
+    /*definindo formatação do botao que é aplicado em quase todos*/
+    
+    .btn {
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);
+    }
+    
+    .card-info button {
+        width: 8rem;
+        height: 2.5rem;
+        cursor: pointer;
+    }
+    /*animação do botão*/
+    
+    .card-info button:hover {
+        color: white;
+    }
+    /*tornando o texto visivel quando o ponteiro estiver em cima*/
+    
+    .card:hover .card-info {
+        bottom: 2.3rem;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    #mensagem {
+        height: 740px;
+    }
+    
+    .sessao-mensagem {
+        width: 100%;
+        height: 100vw;
+        background-color: rgb(233, 233, 233);
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-top: 8%;
+        border-top: 3px solid rgb(68, 68, 68);
+    }
+    
+    .mensagem-wrapper {
+        margin-top: 8%;
+        width: 60%;
+        height: 30rem;
+        display: flex;
+        box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
+    }
+    /*editando imagem esquerda do bloco*/
+    
+    .mensagem-left {
+        width: 35%;
+        background: linear-gradient(rgba(15, 15, 15, 0.6), rgba(22, 22, 22, 0.9)), url(./Imagens/contato.jpg);
+        background-size: cover;
+    }
+    
+    .mensagem-right {
+        width: 65%;
+        background-color: #eee;
+        padding: 1rem 3rem 3rem 3rem;
+    }
+    
+    .sessao-mensagem h1 {
+        width: 100%;
+        text-align: center;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        color: #272727;
+        font-size: 2.5rem;
+    }
+    
+    .sessao-mensagem form {
+        margin-top: 9%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .input-group {
+        position: relative;
+    }
+    
+    .field {
+        background: transparent;
+        border: none;
+        width: 20rem;
+        font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        border-bottom: 1px solid #636363;
+        outline: none;
+        margin: 2rem 0;
+    }
+    
+    .input-group textarea {
+        padding-top: 1rem;
+        min-width: 17rem;
+        max-width: 23rem;
+        max-height: 3rem;
+    }
+    
+    .field-label {
+        position: absolute;
+        left: 0.5rem;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: all 0.3s;
+    }
+    
+    .field:focus {
+        border-bottom: 1px solid;
+    }
+    
+    .btn-submit {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        width: 80%;
+        height: 2.5rem;
+        margin-top: 1rem;
+        letter-spacing: 0.2rem;
+        cursor: pointer;
+        text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-submit:hover {
+        color: white;
+    }
+    /*footer*/
+    
+    footer {
+        background-color: rgba(24, 23, 23, 0.932);
+        padding-bottom: 40px;
+        border-top: 5px solid #36D1DC;
+        margin-top: -52px;
+    }
+    
+    footer h2 {
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        color: #a7a7a7;
+    }
+    
+    .footer-box p {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #a7a7a7;
+    }
+    
+    .footer-box a {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #36D1DC;
+    }
+    
+    .footer-box {
+        margin-top: 3%;
+        width: 31%;
+        padding: 1%;
+        float: left;
+    }
+    
+    footer .wrapper::after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    
+    .footer-bottom .wrapper p {
+        color: #a7a7a7;
+    }
+    
+    footer ul {
+        padding: 0;
+    }
+    
+    .company-footer {
+        width: 80%;
+    }
+    
+    .footer-list {
+        margin-top: 10%;
+    }
+    
+    .company-footer h2 {
+        margin-top: 20px;
+    }
+    
+    .company-footer h2,
+    .company-footer p {
+        margin-bottom: 20px;
+    }
+    
+    .footer-list li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-list a {
+        transition: .5s;
+    }
+    
+    .footer-list a:hover {
+        color: white;
+    }
+    
+    .footer-list .fab {
+        font-size: 30px;
+    }
+    
+    .footer-bottom {
+        border-top: 1px solid #B2B2B2;
+    }
+    
+    .footer-bottom p {
+        font-weight: 600;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    
+    #link-topo {
+        position: fixed;
+        right: 3rem;
+        bottom: 3rem;
+        width: 3rem;
+        height: 3rem;
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: .3rem;
+        box-shadow: 0 0.1rem 0.6rem #00000009;
+    }
+    /*Começo do planos.html*/
+    
+    .sessao-planos {
+        margin-bottom: 85px;
+    }
+    
+    .planos {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 2rem;
+    }
+    
+    .card-planos {
+        margin-top: 5%;
+        width: 18rem;
+        height: 35rem;
+        position: relative;
+    }
+    
+    .card-planos-img-wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        border-radius: 0.5rem;
+    }
+    
+    .card-planos-img-wrapper img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        opacity: 0.8;
+        margin-bottom: 10%;
+        transition: opacity 0.3s;
+    }
+    
+    .card-planos:hover .card-planos-img-wrapper img {
+        opacity: 0.3;
+    }
+    
+    .card-planos-info {
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        margin-bottom: 1rem;
+        padding: 2rem;
+        text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, 0.6);
+        transition: all 0.3s;
+        right: auto;
+        left: 13px;
+    }
+    
+    .card-planos-info h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color: white;
+        margin-bottom: 1rem;
+    }
+    
+    .card-planos-info li {
+        margin-bottom: 15px;
+    }
+    
+    .card-planos-info ul {
+        text-align: center;
+    }
+    
+    .card-planos-info button {
+        width: 8rem;
+        height: 2.5rem;
+        cursor: pointer;
+    }
+    
+    .card-planos-info button:hover {
+        color: white;
+    }
+    
+    .card-planos:hover .card-planos-info {
+        bottom: 2.3rem;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .obs-planos {
+        text-align: center;
+        margin-left: 122px;
+        width: 1104px;
+        color: grey;
+    }
+    /*Começo do caixa - rh - estoque - venda.html*/
+    
+    .sessao04 {
+        background-color: rgba(243, 239, 233, 0.671);
+    }
+    
+    .objetivo p {
+        width: 383px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: justify;
+        font-size: 20px;
+        border-style: hidden;
+        border-width: 0px;
+        border-color: transparent;
+        position: relative;
+        top: -21px;
+        left: 114px;
+    }
+    
+    .objetivo h3 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 22px;
+        position: relative;
+        width: 426px;
+        left: 95px;
+        top: -41px;
+    }
+    
+    .sessao04 .objetivo {
+        position: relative;
+        margin-left: -75px;
+        width: 567px;
+        border-style: solid;
+        bottom: auto;
+        height: 202px;
+        right: auto;
+        left: 98px;
+        top: 38px;
+    }
+    
+    .objetivo .fa-check-circle {
+        color: #3885bc;
+        position: relative;
+        top: 5px;
+        left: 16px;
+        font-size: 80px;
+    }
+    
+    .sessao04 .solucao {
+        bottom: auto;
+        position: relative;
+        border-style: solid;
+        width: 573px;
+        right: auto;
+        left: 698px;
+        margin-top: 3spx;
+        height: 205px;
+        top: -173px;
+        margin-left: 55px;
+    }
+    
+    .solucao p {
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        bottom: auto;
+        top: -30px;
+        text-align: justify;
+        width: 428px;
+        right: auto;
+        left: 112px;
+    }
+    
+    .solucao h3 {
+        font-size: 22px;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        bottom: auto;
+        top: -40px;
+        margin-left: -5px;
+        width: 454px;
+        right: auto;
+        left: 56px;
+    }
+    
+    .solucao .fa-grin-stars {
+        font-size: 80px;
+        color: #78b6e2;
+        right: auto;
+        position: relative;
+        bottom: auto;
+        top: 5px;
+        left: 21px;
+    }
+    
+    .sessao04 .funcionalidade-modulo {
+        bottom: auto;
+        position: relative;
+        left: 0px;
+        top: -96px;
+        margin-left: 24px;
+        width: 1253px;
+        border-style: hidden;
+        border-width: 3px;
+    }
+    
+    .funcionalidade-modulo li {
+        background-color: #c0bcbcd5;
+        list-style: square;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        text-shadow: none;
+        width: 514px;
+        text-align: center;
+        position: relative;
+        padding-top: 18px;
+        padding-bottom: 12px;
+        top: 0px;
+        left: 0px;
+        border-width: 5px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 90px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 90px;
+        list-style-type: none;
+        border-style: groove;
+        box-shadow: 0px 0px 10px 0px #66aedf;
+    }
+    
+    .funcionalidade-modulo ul {
+        position: relative;
+        width: 525px;
+        top: -240px;
+        left: 678px;
+        border-style: hidden;
+        bottom: auto;
+        margin-left: 120px;
+    }
+    
+    .funcionalidade-modulo img {
+        right: auto;
+        position: relative;
+        bottom: auto;
+        left: 15px;
+        top: 80px;
+        box-shadow: 0px 0px 10px 0px #66aedf;
+        border-radius: 30px;
+        margin-left: 35px;
+    }
+    /*Saiba Mais*/
+    
+    .fotosobre img {
+        top: 38px;
+        left: 0px;
+        position: relative;
+    }
+    
+    .textsobre h2 {
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        position: relative;
+        width: 544px;
+        top: -222px;
+        left: 17px;
+        margin-left: 505px;
+        text-align: center;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .textsobre p {
+        text-align: justify;
+        position: relative;
+        box-sizing: content-box;
+        height: 117px;
+        width: 545px;
+        top: -185px;
+        margin-left: 521px;
+        letter-spacing: 1.1px;
+        word-spacing: 1px;
+        margin-top: -2px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .quemsomos {
+        margin-top: 10%;
+    }
+    
+    .quemsomos h1 {
+        margin-left: 200px;
+        margin-right: auto;
+        position: relative;
+        top: -160px;
+        min-width: 0px;
+        max-width: auto;
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        left: 100px;
+        border-top-style: solid;
+        border-top-color: #3885bc;
+        border-top-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #3885bc;
+        width: 834px;
+        text-align: center;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+    
+    .quemsomos p {
+        text-align: justify;
+        top: -111px;
+        position: relative;
+        word-spacing: 2px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 297px !important;
+        width: 837px;
+    }
+    /*contato.html*/
+    
+    .contatos {
+        margin-bottom: 10%;
+    }
+    
+    .contato li {
+        margin-top: 4%;
+        position: relative;
+        left: 300px;
+        margin-right: 20px;
+        align-items: center;
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .contato i {
+        font-size: 1.8rem;
+        margin-top: 4px;
+    }
+    
+    .contato p {
+        font-size: 1.8rem;
+        font-family: "Roboto";
+    }
